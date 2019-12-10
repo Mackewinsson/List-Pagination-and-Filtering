@@ -18,10 +18,7 @@ FSJS project 2 - List Filter and Pagination
 ***/
 
 const studentList = document.querySelectorAll('.student-list li');
-const studentNumber = 10;
-
-
-
+const studentPerPage = 10;
 
 /*** 
    Create the `showPage` function to hide all of the items in the 
@@ -38,8 +35,20 @@ const studentNumber = 10;
        "invoke" the function 
 ***/
 
+function showPage(list, page){
 
+   let starIndex = (page * studentPerPage) - studentPerPage;
+   let endIndex = page * studentPerPage;
 
+   for(let i = 0; i < list.lenght; i += 1){
+
+      if(i >= starIndex && i <= endIndex){
+         studentList[i].style.display = 'block';
+      } else{
+         studentList[i].style.display = 'none';
+      }
+   };
+};
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
