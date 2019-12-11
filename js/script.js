@@ -4,13 +4,13 @@ FSJS project 2 - List Filter and Pagination
 ******************************************/
 
 const studentList = document.querySelectorAll('.student-list li');
-const studentPerPage = 10;
+const studentPerPage = 9;
 
 const showPage = (list, page) => {
 
    let startIndex = (page * studentPerPage) - studentPerPage;
    let endIndex = page * studentPerPage;
-
+   console.log(startIndex, endIndex);
    for(let i = 0; i < list.length; i += 1){
 
       if(i >= startIndex && i <= endIndex){
