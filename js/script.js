@@ -10,7 +10,7 @@ const showPage = (list, page) => {
 
    let startIndex = (page * studentPerPage) - studentPerPage;
    let endIndex = page * studentPerPage;
-   console.log(startIndex, endIndex);
+
    for(let i = 0; i < list.length; i += 1){
 
       if(i >= startIndex && i <= endIndex){
@@ -21,8 +21,27 @@ const showPage = (list, page) => {
    };
 };
 
-showPage(studentList, 1);
+const appendPageLinks = (list) => {
 
+   const pagesNeeded = Math.ceil(list.length / 10);
+   const page = document.querySelector('.page');
+
+   let div = document.createElement('div');
+   div.className = 'pagination';
+   let ul = document.createElement('ul');
+
+   page.appendChild(div);
+   div.appendChild(ul);
+
+   // for (let i = 0; i < pagesNeeded; i += 1) {
+
+   //    let li = docuement.createElement('li');
+   //    let a = docuement.createElement('a');
+
+   // };
+};
+
+appendPageLinks(studentList);
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
