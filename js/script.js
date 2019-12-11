@@ -24,21 +24,43 @@ const showPage = (list, page) => {
 const appendPageLinks = (list) => {
 
    const pagesNeeded = Math.ceil(list.length / 10);
+
+// Selecting .page to append div.pagination and ul
+
    const page = document.querySelector('.page');
 
-   let div = document.createElement('div');
-   div.className = 'pagination';
-   let ul = document.createElement('ul');
+// Creating Div and ul elements and appeding them to .page
 
+   const div = document.createElement('div');
+   div.className = 'pagination';
+   const ul = document.createElement('ul');
    page.appendChild(div);
    div.appendChild(ul);
 
-   // for (let i = 0; i < pagesNeeded; i += 1) {
+   for (let i = 0; i < pagesNeeded; i += 1) {
+// selecting the ul
+      const ul = div.getElementsByTagName('ul')[0];
+// Creating the li and a elements
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+// Appending the li to the ul
+      li.appendChild(a);
+      ul.appendChild(li);
+// adding the atributes to a elements
+      a.href = '#'
+      a.textContent = i + 1;
+// adding active class to the first link only
+      if( a.textContent == 1){
 
-   //    let li = docuement.createElement('li');
-   //    let a = docuement.createElement('a');
+         a.className = 'active';
 
-   // };
+      };
+// for loop to addevent listener to all a elements
+// Add event listener on a tags
+   };
+
+   
+
 };
 
 appendPageLinks(studentList);
