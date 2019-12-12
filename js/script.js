@@ -4,7 +4,7 @@ FSJS project 2 - List Filter and Pagination
 ******************************************/
 
 const studentList = document.querySelectorAll('.student-list li');
-const studentPerPage = 9;
+const studentPerPage = 10;
 
 const showPage = (list, page) => {
 
@@ -13,9 +13,9 @@ const showPage = (list, page) => {
 
    for(let i = 0; i < list.length; i += 1){
 
-      if(i >= startIndex && i <= endIndex){
+      if(i >= startIndex && i < endIndex){
          list[i].style.display = 'block';
-      } else{
+      } else {
          list[i].style.display = 'none';
       }
    };
@@ -39,10 +39,10 @@ const appendPageLinks = (list) => {
 
    for (let i = 0; i < pagesNeeded; i += 1) {
 // selecting the ul
-      const ul = div.getElementsByTagName('ul')[0];
+      let ul = div.getElementsByTagName('ul')[0];
 // Creating the li and a elements
-      const li = document.createElement('li');
-      const a = document.createElement('a');
+      let li = document.createElement('li');
+      let a = document.createElement('a');
 // Appending the li to the ul
       li.appendChild(a);
       ul.appendChild(li);
@@ -56,14 +56,25 @@ const appendPageLinks = (list) => {
 
       };
 // for loop to addevent listener to all a elements
-// Add event listener on a tags
    };
+// Add event listener on a tags
+   ul.addEventListener('click', (event) => {
 
-   
+      let buttons = ul.getElementsByTagName('a');
+// Loops through the a tags and take the class out
+      for (let i = 0; i < pagesNeeded; i += 1) {
+         buttons[i].className = '';
+      };
+      event.target.className = 'active';
+
+      showPage(studentList, event.target.textContent);
+   });
 
 };
 
 appendPageLinks(studentList);
+
+showPage(studentList, 1);
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
