@@ -8,8 +8,8 @@ const studentPerPage = 10;
 
 const showPage = (list, page) => {
 
-   let startIndex = (page * studentPerPage) - studentPerPage;
-   let endIndex = page * studentPerPage;
+   const startIndex = (page * studentPerPage) - studentPerPage;
+   const endIndex = page * studentPerPage;
 
    for(let i = 0; i < list.length; i += 1){
 
@@ -39,10 +39,10 @@ const appendPageLinks = (list) => {
 
    for (let i = 0; i < pagesNeeded; i += 1) {
 // selecting the ul
-      let ul = div.getElementsByTagName('ul')[0];
+      const ul = div.getElementsByTagName('ul')[0];
 // Creating the li and a elements
-      let li = document.createElement('li');
-      let a = document.createElement('a');
+      const li = document.createElement('li');
+      const a = document.createElement('a');
 // Appending the li to the ul
       li.appendChild(a);
       ul.appendChild(li);
@@ -60,7 +60,7 @@ const appendPageLinks = (list) => {
 // Add event listener on a tags
    ul.addEventListener('click', (event) => {
 
-      let buttons = ul.getElementsByTagName('a');
+      const buttons = ul.getElementsByTagName('a');
 // Loops through the a tags and take the class out
       for (let i = 0; i < pagesNeeded; i += 1) {
          buttons[i].className = '';
