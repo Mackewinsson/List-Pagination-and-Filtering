@@ -65,15 +65,15 @@ const appendPageLinks = (list) => {
       for (let i = 0; i < pagesNeeded; i += 1) {
          buttons[i].className = '';
       };
+// add the active class to the event.target
       event.target.className = 'active';
-
+// call the showPage function to display the right elements
       showPage(studentList, event.target.textContent);
    });
-
 };
-
+// calls appendPageLinks() to dinamicaly add pagination buttons
 appendPageLinks(studentList);
-
+// calls the showPage() to show the right elements on the pagination
 showPage(studentList, 1);
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
